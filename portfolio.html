@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body{
+            /* This hides the default system cursor */
+            cursor: none;
+        }
+            /* --- 1. The Custom Cursor --- */
+        #custom-cursor {
+            /* Make it a circle */
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            
+            /* Set the glowy dark red color */
+            background-color: #E53935; /* Strong red */
+            box-shadow: 0 0 15px #E53935, 
+                        0 0 25px #E53935, 
+                        0 0 35px #E53935;
+            
+            /* Positioning */
+            position: fixed; /* Stays in the viewport */
+            top: 0;
+            left: 0;
+            
+            /* Center the dot on the actual pointer */
+            transform: translate(-50%, -50%);
+            
+            /* Make sure it's on top of everything */
+            z-index: 9999;
+            
+            /* IMPORTANT: This lets you click "through" the dot */
+            pointer-events: none;
+            
+            /* Smooth movement */
+            transition: transform 0.1s ease-out;
+        }
+                /* --- 2. Cursor Hover Effect --- */
+        /* When hovering over any 'a' tag */
+        body:has(a:hover) #custom-cursor {
+            /* We can make it bigger or change its style */
+            transform: translate(-50%, -50%) scale(1.5);
+            background-color: #ff6b6b;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Personal Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- The custom cursor element -->
+    <div id="custom-cursor"></div>
+        <!-- JavaScript to move the cursor -->
+    <script>
+        document.addEventListener('mousemove', (e) => {
+            const cursor = document.getElementById('custom-cursor');
+            
+            // Update the position of the custom cursor
+            // e.clientX is the mouse's horizontal position
+            // e.clientY is the mouse's vertical position
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+    </script>
+
+    <header>
+        <nav>
+            <div class="logo">Lakshit.</div>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home">
+            <div class="home-content">
+                <img src="lakshit.jpg" alt="Lakshit" class="profile-pic" style="width:150px; height:150px; border-radius:50%; object-fit:cover; margin-bottom: 1rem; border: 3px solid var(--primary-color);">
+                <h1>Hi, I'm Lakshit</h1>
+                <p>CSE Student</p>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2>About Me</h2>
+            <p>
+                Welcome to my personal website! I am a passionate Computer Science Student based in DTU. 
+                I have a strong interest in Coding and Mathematics. 
+                This website showcases my journey, skills, and the projects I've worked on.
+            </p>
+        </section>
+
+        <section id="skills">
+            <h2>Education & Skills</h2>
+            <div class="skills-container">
+                <div class="education">
+                    <h3>Education</h3>
+                    <ul>
+                        <li>
+                            <strong>Standard 10th</strong><br>
+                            Children's Academy -90.33 | [2021 - 2022]
+                        </li>
+                        <li>
+                            <strong>High School Diploma</strong><br>
+                            Tagore Public School -89.8 | [2022 - 2024]
+                        </li>
+                        <li>
+                            <strong>B.Tech</strong><br>
+                            DTU CSE | [2025-2029] | Present
+                        </li>
+                        <li>
+                            <strong>JEE MAINS</strong><br>
+                            99.36 - 9906 CRL Rank 2025
+                        </li>
+                    </ul>
+                </div>
+                <div class="skills-list">
+                    <h3>My Skills</h3>
+                    <ul>
+                        <li>Java</li>
+                        <li>CSS3 (Flexbox, Grid)</li>
+                        <li>Html</li>
+                        <li>C++</li>
+                        <li>Python</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>Tic Tac Toe</h3>
+                    <p>
+                        Just for fun. It Aids Boredom and helps in breaks from work
+                        Html, Javascript :)
+                    </p>
+                    <a href="https://flawlessence.github.io/Tic-Tac-Toe/" target="_blank" class="project-link">View Project</a>
+                </div>
+                <div class="project-card">
+                    <h3>A Red Cursor</h3>
+                    <p>
+                        Change the Default Cursor into something fun! 
+                        Html, Css and a little bit of javascript :)
+                    </p>
+                    <a href="https://flawlessence.github.io/RedCursor/" target="_blank" class="project-link">View Project</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Get In Touch</h2>
+            <p>I'm always open to discussing new projects or opportunities. Feel free to reach out!</p>
+            <p>Email: <a href="mailto:laksjangid@gmail.com">laksjangid@gmail.com</a></p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/lakshit-jangid-960123306/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/Flawlessence" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="[Your Twitter/X URL]" target="_blank"><i class="fab fa-twitter"></i></a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Lakshit Jangid. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
+
+
